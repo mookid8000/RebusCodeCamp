@@ -2,8 +2,8 @@
 using System.Configuration;
 using System.Timers;
 using System.Windows;
-using DrugDealer.Messages;
-using DrugDealer.Windows;
+using DrugLord.Messages;
+using DrugLord.Windows;
 using Rebus;
 using Rebus.Configuration;
 using Rebus.Logging;
@@ -11,7 +11,7 @@ using Rebus.Shared;
 using Rebus.Transports.Msmq;
 using Rebus.MongoDb;
 
-namespace DrugDealer
+namespace DrugLord
 {
     /// <summary>
     /// Interaction logic for App.xaml

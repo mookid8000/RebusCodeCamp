@@ -1,4 +1,4 @@
-﻿namespace DrugDealer.Messages
+﻿namespace DrugLord.Messages
 {
     public class SecretCodeHasBeenGenerated
     {

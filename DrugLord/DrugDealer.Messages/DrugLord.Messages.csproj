@@ -7,8 +7,8 @@
     <ProjectGuid>{440E1D21-B8BA-4014-A2DF-4D33807D4E45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DrugDealer.Messages</RootNamespace>
-    <AssemblyName>DrugDealer.Messages</AssemblyName>
+    <RootNamespace>DrugLord.Messages</RootNamespace>
+    <AssemblyName>DrugLord.Messages</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

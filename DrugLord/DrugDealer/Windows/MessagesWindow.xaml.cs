@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 
-namespace DrugDealer.Windows
+namespace DrugLord.Windows
 {
     /// <summary>
     /// Interaction logic for MessagesWindow.xaml

@@ -1,4 +1,4 @@
-namespace DrugDealer
+namespace DrugLord
 {
     public class LogWindowMock
     {

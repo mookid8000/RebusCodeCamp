@@ -1,6 +1,6 @@
 using Rebus.Logging;
 
-namespace DrugDealer
+namespace DrugLord
 {
     public class WindowLoggerFactory : IRebusLoggerFactory
     {

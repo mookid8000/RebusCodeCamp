@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using Rebus.Logging;
 
-namespace DrugDealer
+namespace DrugLord
 {
     public class WindowLogger : ILog
     {

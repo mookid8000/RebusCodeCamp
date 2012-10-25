@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using DrugDealer.Windows;
+using DrugLord.Windows;
 
-namespace DrugDealer
+namespace DrugLord
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

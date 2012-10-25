@@ -2,7 +2,7 @@
 using System.Timers;
 using System.Windows;
 
-namespace DrugDealer
+namespace DrugLord
 {
     /// <summary>
     /// Interaction logic for LogOutputWindow.xaml

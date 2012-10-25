@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrugDealer", "DrugDealer\DrugDealer.csproj", "{92BCE52A-89AE-447A-9A52-1A6D3BCD4469}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrugLord", "DrugDealer\DrugLord.csproj", "{92BCE52A-89AE-447A-9A52-1A6D3BCD4469}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test clients", "test clients", "{389F56CD-DA66-4CB9-9F30-9A2EDB95175F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextMessageSender", "TextMessageSender\TextMessageSender.csproj", "{2E6A2212-FEB2-48D1-94D6-713C7C83D6BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrugDealer.Messages", "DrugDealer.Messages\DrugDealer.Messages.csproj", "{440E1D21-B8BA-4014-A2DF-4D33807D4E45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrugLord.Messages", "DrugDealer.Messages\DrugLord.Messages.csproj", "{440E1D21-B8BA-4014-A2DF-4D33807D4E45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoapPimp", "SoapPimp\SoapPimp.csproj", "{B1888D93-8314-4365-B17B-1758F7ADC0D4}"
 EndProject
