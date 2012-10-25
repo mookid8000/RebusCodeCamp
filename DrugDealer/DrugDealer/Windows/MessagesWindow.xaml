@@ -1,0 +1,32 @@
+﻿<Window x:Class="DrugDealer.Windows.MessagesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Windows="clr-namespace:DrugDealer.Windows" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Messages" Height="795" Width="718">
+    <Window.Resources>
+        <Windows:MessagesWindowMock x:Key="DesignViewModel"/>
+    </Window.Resources>
+
+    <Grid d:DataContext="{Binding Source={StaticResource DesignViewModel}}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ListBox ItemsSource="{Binding ListBoxItems, Mode=OneWay}" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="8" BorderThickness="4" Margin="1" BorderBrush="Black" Background="AliceBlue">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Time}" FontSize="24"/>
+                                    <Label Content="{Binding Sender}" FontSize="24" Background="LightGreen"/>
+                                </StackPanel>
+                                <Label Content="{Binding Message}" FontSize="38"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+    </Grid>
+</Window>
