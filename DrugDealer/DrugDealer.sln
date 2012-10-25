@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextMessageSender", "TextMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrugDealer.Messages", "DrugDealer.Messages\DrugDealer.Messages.csproj", "{440E1D21-B8BA-4014-A2DF-4D33807D4E45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoapPimp", "SoapPimp\SoapPimp.csproj", "{B1888D93-8314-4365-B17B-1758F7ADC0D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{440E1D21-B8BA-4014-A2DF-4D33807D4E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{440E1D21-B8BA-4014-A2DF-4D33807D4E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{440E1D21-B8BA-4014-A2DF-4D33807D4E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1888D93-8314-4365-B17B-1758F7ADC0D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1888D93-8314-4365-B17B-1758F7ADC0D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1888D93-8314-4365-B17B-1758F7ADC0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1888D93-8314-4365-B17B-1758F7ADC0D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

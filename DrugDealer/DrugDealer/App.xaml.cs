@@ -65,6 +65,7 @@ namespace DrugDealer
             if (random.Next(SecretCodePublishIntervalAvg * 2) > 0) return;
 
             var secretCode = Guid.NewGuid().ToString();
+            Data.Current.SaveSecretCode(secretCode);
 
             Log.Info("Generated new code: {0} - publishing it to my minions!", secretCode);
 
