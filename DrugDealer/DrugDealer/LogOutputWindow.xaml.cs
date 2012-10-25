@@ -34,10 +34,10 @@ namespace DrugDealer
             timer.Start();
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosed(System.EventArgs e)
         {
+            base.OnClosed(e);
             timer.Stop();
-            base.OnClosing(e);
         }
 
         void UpdateText(object sender, ElapsedEventArgs e)
