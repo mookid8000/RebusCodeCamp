@@ -135,7 +135,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DrugDealer.Messages\DrugLord.Messages.csproj">
+    <ProjectReference Include="..\DrugLord.Messages\DrugLord.Messages.csproj">
       <Project>{440E1D21-B8BA-4014-A2DF-4D33807D4E45}</Project>
       <Name>DrugLord.Messages</Name>
     </ProjectReference>
