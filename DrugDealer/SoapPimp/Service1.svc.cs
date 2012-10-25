@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.ServiceModel;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using SoapPimp.Dtos;
 
 namespace SoapPimp
@@ -16,16 +17,27 @@ namespace SoapPimp
             database = MongoDatabase.Create(ConfigurationManager.AppSettings["mongo"]);
         }
 
-        public Money GetMoney(string secretCode)
+        public Money GetMoney(string userToken, string secretCode)
         {
             PossiblyVomitJustBecause();
+            ValidatePresenceOfUserToken(userToken);
             return new Money();
         }
 
-        public Drugs GetDrugs(string secretCode)
+        public Drugs GetDrugs(string userToken, string secretCode)
         {
             PossiblyVomitJustBecause();
+            ValidatePresenceOfUserToken(userToken);
             return new Drugs();
+        }
+
+        void ValidatePresenceOfUserToken(string userToken)
+        {
+            if (database.GetCollection("userTokens").FindOne(Query.EQ("userToken", userToken)) != null) return;
+
+            throw new FaultException(
+                string.Format("User token '{0}' is invalid! Did you really get it by greeting the Drug Lord approproately?",
+                    userToken));
         }
 
         /// <summary>

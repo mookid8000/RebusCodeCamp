@@ -7,9 +7,9 @@ namespace SoapPimp
     public interface IService1
     {
         [OperationContract]
-        Money GetMoney(string secretCode);
+        Money GetMoney(string userToken, string secretCode);
 
         [OperationContract]
-        Drugs GetDrugs(string secretCode);
+        Drugs GetDrugs(string userToken, string secretCode);
     }
 }

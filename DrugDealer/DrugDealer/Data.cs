@@ -1,5 +1,8 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace DrugDealer
 {
@@ -21,6 +24,23 @@ namespace DrugDealer
         public void SaveSecretCode(string secretCode)
         {
             database.GetCollection("secretCodes").Insert(new {code = secretCode});
+        }
+
+        public string GetUserTokenFor(string endpoint)
+        {
+            var userTokens = database.GetCollection("userTokens");
+            userTokens.EnsureIndex(IndexKeys.Ascending("endpoint"), IndexOptions.SetUnique(true));
+
+            var existingUserToken = userTokens.FindOne(Query.EQ("endpoint", endpoint));
+
+            if (existingUserToken == null)
+            {
+                var userToken = endpoint + "/" + Guid.NewGuid().ToString().Substring(0, 6);
+                userTokens.Insert(new {endpoint, userToken});
+                return userToken;
+            }
+
+            return existingUserToken["userToken"].AsString;
         }
     }
 }

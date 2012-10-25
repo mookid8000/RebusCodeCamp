@@ -42,6 +42,13 @@ namespace DrugDealer
                                         : "(????)";
 
                 MessageReceived(new MessageItem(returnAddress, str));
+
+                if (messageContext.Headers.ContainsKey(Headers.ReturnAddress))
+                {
+                    var userToken = Data.Current.GetUserTokenFor(returnAddress);
+
+                    adapter.Bus.Reply(userToken);
+                }
             });
 
             Configure.With(adapter)
