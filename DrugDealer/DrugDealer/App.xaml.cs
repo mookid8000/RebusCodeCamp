@@ -1,4 +1,8 @@
-﻿using Rebus.Configuration;
+﻿using System;
+using DrugDealer.Windows;
+using Rebus;
+using Rebus.Configuration;
+using Rebus.Shared;
 using Rebus.Transports.Msmq;
 
 namespace DrugDealer
@@ -10,9 +14,21 @@ namespace DrugDealer
     {
         BuiltinContainerAdapter adapter;
 
+        public event Action<MessageItem> MessageReceived = delegate { };
+
         protected override void OnStartup(System.Windows.StartupEventArgs e)
         {
             adapter = new BuiltinContainerAdapter();
+
+            adapter.Handle<string>(str =>
+                                       {
+                                           var messageContext = MessageContext.GetCurrent();
+                                           var sender = messageContext.Headers.ContainsKey(Headers.ReturnAddress)
+                                                            ? (string) messageContext.Headers[Headers.ReturnAddress]
+                                                            : "(????)";
+                                           
+                                           MessageReceived(new MessageItem(sender, str));
+                                       });
 
             Configure.With(adapter)
                 .Logging(l => l.Use(new WindowLoggerFactory()))

@@ -11,17 +11,17 @@
     </Window.Resources>
 
     <Grid d:DataContext="{Binding Source={StaticResource DesignViewModel}}">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <ListBox ItemsSource="{Binding ListBoxItems, Mode=OneWay}" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border CornerRadius="8" BorderThickness="4" Margin="1" BorderBrush="Black" Background="AliceBlue">
+                        <Border CornerRadius="6" BorderThickness="4" Margin="1" BorderBrush="Black" Background="AliceBlue">
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="{Binding Time}" FontSize="24"/>
+                                    <Label Content="{Binding Time}" FontSize="24" Background="Thistle"/>
                                     <Label Content="{Binding Sender}" FontSize="24" Background="LightGreen"/>
                                 </StackPanel>
-                                <Label Content="{Binding Message}" FontSize="38"/>
+                                <TextBlock Text="{Binding Message}" FontSize="38"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>

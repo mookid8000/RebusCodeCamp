@@ -10,7 +10,7 @@ namespace DrugDealer.Windows
     /// </summary>
     public partial class MessagesWindow : INotifyPropertyChanged
     {
-        ObservableCollection<string> listBoxItems;
+        readonly ObservableCollection<MessageItem> listBoxItems = new ObservableCollection<MessageItem>();
 
         public MessagesWindow()
         {
@@ -19,14 +19,33 @@ namespace DrugDealer.Windows
             DataContext = this;
         }
 
-        public ObservableCollection<string> ListBoxItems
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+
+            ((App)Application.Current).MessageReceived += MessageReceived;
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            ((App)Application.Current).MessageReceived -= MessageReceived;
+        }
+
+        void MessageReceived(MessageItem messageItem)
+        {
+            Dispatcher.Invoke(() => AddItem(messageItem));
+        }
+
+        void AddItem(MessageItem messageItem)
+        {
+            listBoxItems.Insert(0, messageItem);
+        }
+
+        public ObservableCollection<MessageItem> ListBoxItems
         {
             get { return listBoxItems; }
-            set
-            {
-                listBoxItems = value;
-                OnPropertyChanged("ListBoxItems");
-            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -49,7 +68,7 @@ namespace DrugDealer.Windows
                                    new MessageItem("just.some.sender", "Hell o world!!!"),
                                    new MessageItem("someone", "Hello there, how u doin?"),
                                    new MessageItem("someone", "Hell o world!!!"),
-                                   new MessageItem("someone", "Hell o world!!!"),
+                                   new MessageItem("someone", "Hell o world!!! This is a very long text, at least compared to the other texts.... Hell o world!!! This is a very long text, at least compared to the other texts.... Hell o world!!! This is a very long text, at least compared to the other texts...."),
                                    new MessageItem("someone", "Hell o world!!!"),
                                    new MessageItem("someone", "Hell o world!!!"),
                                    new MessageItem("someone", "Hell o world!!!"),
