@@ -8,9 +8,13 @@ namespace SoapPimp.Dtos
         [DataMember]
         public decimal Amount { get; set; }
 
-        public Drugs(decimal amount)
+        [DataMember]
+        public string TransferId { get; set; }
+
+        public Drugs(decimal amount, string transferId)
         {
             Amount = amount;
+            TransferId = transferId;
         }
     }
 }

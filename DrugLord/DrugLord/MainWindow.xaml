@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Rebus Code Camp" Height="350" Width="525">
     <Grid>
-        <ItemsControl>
-            <Button Content="Messages" Click="ShowMessagesWindow"/>
+        <ItemsControl Padding="10">
+            <Button Content="Messages" Click="ShowMessagesWindow" Padding="10" Margin="2"/>
+            <Button Content="Deposits" Click="ShowDepositsWindow" Padding="10" Margin="2"/>
         </ItemsControl>
     </Grid>
 </Window>

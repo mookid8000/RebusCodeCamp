@@ -10,9 +10,9 @@ namespace TestSoapPimp
             var client = new DrugLordClient();
             try
             {
-                var money = client.GetMoney("textMessageClient.input@MHG-PC/9acc4b", "1");
+                var money = client.GetMoney("textMessageClient.input@MHG-PC/9acc4b", "2");
                 
-                Console.WriteLine("Yay, got money: {0}", money.Amount);
+                Console.WriteLine("Yay, got money: {0} (transferId: {1})", money.Amount, money.TransferId);
             }
             catch(Exception e)
             {

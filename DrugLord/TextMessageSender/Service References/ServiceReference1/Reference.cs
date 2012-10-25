@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestSoapPimp.ServiceReference1 {
+namespace TextMessageSender.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -86,6 +86,9 @@ namespace TestSoapPimp.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal AmountField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransferIdField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -109,6 +112,19 @@ namespace TestSoapPimp.ServiceReference1 {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TransferId {
+            get {
+                return this.TransferIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransferIdField, value) != true)) {
+                    this.TransferIdField = value;
+                    this.RaisePropertyChanged("TransferId");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -124,25 +140,25 @@ namespace TestSoapPimp.ServiceReference1 {
     public interface IDrugLord {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDrugLord/GetMoney", ReplyAction="http://tempuri.org/IDrugLord/GetMoneyResponse")]
-        TestSoapPimp.ServiceReference1.Money GetMoney(string userToken, string secretCode);
+        TextMessageSender.ServiceReference1.Money GetMoney(string userToken, string secretCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDrugLord/GetMoney", ReplyAction="http://tempuri.org/IDrugLord/GetMoneyResponse")]
-        System.Threading.Tasks.Task<TestSoapPimp.ServiceReference1.Money> GetMoneyAsync(string userToken, string secretCode);
+        System.Threading.Tasks.Task<TextMessageSender.ServiceReference1.Money> GetMoneyAsync(string userToken, string secretCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDrugLord/GetDrugs", ReplyAction="http://tempuri.org/IDrugLord/GetDrugsResponse")]
-        TestSoapPimp.ServiceReference1.Drugs GetDrugs(string userToken, string secretCode);
+        TextMessageSender.ServiceReference1.Drugs GetDrugs(string userToken, string secretCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDrugLord/GetDrugs", ReplyAction="http://tempuri.org/IDrugLord/GetDrugsResponse")]
-        System.Threading.Tasks.Task<TestSoapPimp.ServiceReference1.Drugs> GetDrugsAsync(string userToken, string secretCode);
+        System.Threading.Tasks.Task<TextMessageSender.ServiceReference1.Drugs> GetDrugsAsync(string userToken, string secretCode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDrugLordChannel : TestSoapPimp.ServiceReference1.IDrugLord, System.ServiceModel.IClientChannel {
+    public interface IDrugLordChannel : TextMessageSender.ServiceReference1.IDrugLord, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DrugLordClient : System.ServiceModel.ClientBase<TestSoapPimp.ServiceReference1.IDrugLord>, TestSoapPimp.ServiceReference1.IDrugLord {
+    public partial class DrugLordClient : System.ServiceModel.ClientBase<TextMessageSender.ServiceReference1.IDrugLord>, TextMessageSender.ServiceReference1.IDrugLord {
         
         public DrugLordClient() {
         }
@@ -163,19 +179,19 @@ namespace TestSoapPimp.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public TestSoapPimp.ServiceReference1.Money GetMoney(string userToken, string secretCode) {
+        public TextMessageSender.ServiceReference1.Money GetMoney(string userToken, string secretCode) {
             return base.Channel.GetMoney(userToken, secretCode);
         }
         
-        public System.Threading.Tasks.Task<TestSoapPimp.ServiceReference1.Money> GetMoneyAsync(string userToken, string secretCode) {
+        public System.Threading.Tasks.Task<TextMessageSender.ServiceReference1.Money> GetMoneyAsync(string userToken, string secretCode) {
             return base.Channel.GetMoneyAsync(userToken, secretCode);
         }
         
-        public TestSoapPimp.ServiceReference1.Drugs GetDrugs(string userToken, string secretCode) {
+        public TextMessageSender.ServiceReference1.Drugs GetDrugs(string userToken, string secretCode) {
             return base.Channel.GetDrugs(userToken, secretCode);
         }
         
-        public System.Threading.Tasks.Task<TestSoapPimp.ServiceReference1.Drugs> GetDrugsAsync(string userToken, string secretCode) {
+        public System.Threading.Tasks.Task<TextMessageSender.ServiceReference1.Drugs> GetDrugsAsync(string userToken, string secretCode) {
             return base.Channel.GetDrugsAsync(userToken, secretCode);
         }
     }

@@ -37,8 +37,9 @@ namespace SoapPimp
             try
             {
                 var amount = random.Next(100);
-                money.Insert(new { userToken, secretCode, amount }, SafeMode.True);
-                return new Money(amount);
+                var transferId = Guid.NewGuid().ToString();
+                money.Insert(new { userToken, secretCode, amount, transferId }, SafeMode.True);
+                return new Money(amount, transferId);
             }
             catch
             {
@@ -56,8 +57,9 @@ namespace SoapPimp
             try
             {
                 var amount = random.Next(1000);
-                drugs.Insert(new {userToken, secretCode, amount}, SafeMode.True);
-                return new Drugs(amount);
+                var transferId = Guid.NewGuid().ToString();
+                drugs.Insert(new { userToken, secretCode, amount, transferId }, SafeMode.True);
+                return new Drugs(amount, transferId);
             }
             catch
             {

@@ -10,6 +10,7 @@
   <xs:complexType name="Drugs">
     <xs:sequence>
       <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TransferId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Drugs" nillable="true" type="tns:Drugs" />

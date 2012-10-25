@@ -51,6 +51,8 @@ namespace DrugLord
                 }
             });
 
+            adapter.Register(() => new MakeDepositHandler(adapter.Bus));
+
             Configure.With(adapter)
                 .Logging(l => l.Use(windowLoggerFactory))
                 .Transport(t => t.UseMsmqAndGetInputQueueNameFromAppConfig())

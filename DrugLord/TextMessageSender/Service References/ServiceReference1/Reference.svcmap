@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0226902a-b38a-4e2d-baba-60493a9aed63" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1947/DrugLord.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DrugLord.xsd" MetadataType="Schema" ID="8c2e73c9-c59a-4c83-98cf-92ebd62a5c88" SourceId="1" SourceUrl="http://localhost:1947/DrugLord.svc?xsd=xsd1" />
+    <MetadataFile FileName="DrugLord.wsdl" MetadataType="Wsdl" ID="f4cb3eba-43dd-4d16-a3f8-7f8375764f2f" SourceId="1" SourceUrl="http://localhost:1947/DrugLord.svc?wsdl" />
+    <MetadataFile FileName="DrugLord.disco" MetadataType="Disco" ID="a88a06ab-c50b-4adb-8ed5-3c362c4c60a9" SourceId="1" SourceUrl="http://localhost:1947/DrugLord.svc?disco" />
+    <MetadataFile FileName="DrugLord1.xsd" MetadataType="Schema" ID="a63fb899-d949-40e5-a930-cb2eb87800aa" SourceId="1" SourceUrl="http://localhost:1947/DrugLord.svc?xsd=xsd0" />
+    <MetadataFile FileName="DrugLord2.xsd" MetadataType="Schema" ID="bb649b32-f146-44fb-bab4-cc10661a6deb" SourceId="1" SourceUrl="http://localhost:1947/DrugLord.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

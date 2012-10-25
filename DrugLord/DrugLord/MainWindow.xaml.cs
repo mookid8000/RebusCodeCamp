@@ -23,7 +23,12 @@ namespace DrugLord
         {
             var window = new MessagesWindow();
             window.Show();
-            window.WindowState = WindowState.Maximized;
+        }
+
+        void ShowDepositsWindow(object sender, RoutedEventArgs e)
+        {
+            var window = new DepositsWindow();
+            window.Show();
         }
     }
 }

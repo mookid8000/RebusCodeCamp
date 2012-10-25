@@ -76,9 +76,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data.cs" />
+    <Compile Include="DepositsWindowMock.cs" />
     <Compile Include="LogWindowMock.cs" />
+    <Compile Include="MakeDepositHandler.cs" />
     <Compile Include="WindowLogger.cs" />
     <Compile Include="WindowLoggerFactory.cs" />
+    <Compile Include="Windows\DepositsWindow.xaml.cs">
+      <DependentUpon>DepositsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MessagesWindow.xaml.cs">
       <DependentUpon>MessagesWindow.xaml</DependentUpon>
     </Compile>
@@ -101,6 +106,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\DepositsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MessagesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
