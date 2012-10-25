@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Timers;
+using System.Windows;
 
 namespace DrugDealer
 {
@@ -60,6 +61,11 @@ namespace DrugDealer
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        void ClearText(object sender, RoutedEventArgs e)
+        {
+            logger.Clear();
         }
     }
 }

@@ -40,13 +40,23 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.1.0\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="Rebus">
       <HintPath>..\packages\Rebus.0.24.0\lib\NET40\Rebus.dll</HintPath>
     </Reference>
     <Reference Include="Rebus.Castle.Windsor">
       <HintPath>..\packages\Rebus.Castle.Windsor.0.24.0\lib\NET40\Rebus.Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Rebus.MongoDb">
+      <HintPath>..\packages\Rebus.MongoDb.0.24.0\lib\NET40\Rebus.MongoDb.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LogWindowMock.cs" />
     <Compile Include="WindowLogger.cs" />
     <Compile Include="WindowLoggerFactory.cs" />
     <Compile Include="Windows\MessagesWindow.xaml.cs">
@@ -122,7 +133,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DrugDealer.Messages\DrugDealer.Messages.csproj">
+      <Project>{440E1D21-B8BA-4014-A2DF-4D33807D4E45}</Project>
+      <Name>DrugDealer.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

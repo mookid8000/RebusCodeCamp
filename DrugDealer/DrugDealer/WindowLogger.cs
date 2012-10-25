@@ -42,5 +42,10 @@ namespace DrugDealer
         {
             return builder.ToString();
         }
+
+        public void Clear()
+        {
+            builder.Clear();
+        }
     }
 }

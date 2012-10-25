@@ -1,15 +1,26 @@
 ﻿<Window x:Class="DrugDealer.LogOutputWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LogOutputWindow" Height="300" Width="300">
-    <Grid Margin="0,0,-329,-109">
+        Title="LogOutputWindow" Height="537" Width="744" Background="Black" Foreground="White"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:Windows="clr-namespace:DrugDealer"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <Windows:LogWindowMock x:Key="DesignViewModel"/>
+    </Window.Resources>
+
+    <Grid d:DataContext="{Binding Source={StaticResource DesignViewModel}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        
-        <TextBox Grid.Row="0" Text="{Binding LogText}"/>
-            
-        <Button Grid.Row="1" Content="Clear"/>
+
+        <TextBlock Grid.Row="0" Text="{Binding LogText}" FontFamily="Consolas" 
+                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                   ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+        <Button Grid.Row="1" Content="Clear" Click="ClearText"/>
     </Grid>
 </Window>
