@@ -4,7 +4,7 @@ using SoapPimp.Dtos;
 namespace SoapPimp
 {
     [ServiceContract]
-    public interface IService1
+    public interface IDrugLord
     {
         [OperationContract]
         Money GetMoney(string userToken, string secretCode);

@@ -35,7 +35,7 @@ namespace DrugLord
             if (existingUserToken == null)
             {
                 var userToken = endpoint + "/" + Guid.NewGuid().ToString().Substring(0, 6);
-                userTokens.Insert(new {endpoint, userToken});
+                userTokens.Insert(new {endpoint, userToken}, SafeMode.True);
                 return userToken;
             }
 
