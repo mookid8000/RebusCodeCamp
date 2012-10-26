@@ -4,33 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Windows="clr-namespace:DrugLord"
         mc:Ignorable="d"
-        Title="DepositsWindow" Height="461" Width="645">
+        Title="DepositsWindow" Height="576" Width="608">
     <Window.Resources>
         <Windows:DepositsWindowMock x:Key="DesignViewModel"/>
     </Window.Resources>
 
     <Grid d:DataContext="{Binding Source={StaticResource DesignViewModel}}">
-        <ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Border CornerRadius="6" BorderThickness="2" BorderBrush="Black" Margin="10" Grid.Row="0">
+            <Label Content="whoa!"/>
+        </Border>
+        
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
             <ListBox ItemsSource="{Binding Depositors}" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border CornerRadius="6" BorderThickness="2" Margin="1" BorderBrush="Black" Background="AliceBlue">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding Name}" FontSize="20"/>
-                                
-                                <StackPanel Orientation="Vertical">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="Money"/>
-                                        <Border BorderThickness="2" Width="{Binding MoneyAmount}" Height="14" Background="Green"/>
-                                    </StackPanel>
-                                    
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="Drugs"/>
-                                        <Border BorderThickness="2" Width="{Binding DrugsAmount}" Height="14" Background="Red"/>
-                                    </StackPanel>
-                                    
-                                </StackPanel>
-                            </StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Content="{Binding Name}" FontSize="20" Grid.Column="0" Grid.RowSpan="2"/>
+
+                                <Label Content="Money" Grid.Row="0" Grid.Column="1"/>
+                                <Border BorderThickness="2" Width="{Binding MoneyAmount}" Height="18" Background="Green" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"/>
+
+                                <Label Content="Drugs" Grid.Row="1" Grid.Column="1"/>
+                                <Border BorderThickness="2" Width="{Binding DrugsAmount}" Height="18" Background="Red" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"/>
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
