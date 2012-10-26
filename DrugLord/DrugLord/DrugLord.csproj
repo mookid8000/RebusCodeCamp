@@ -46,14 +46,17 @@
     <Reference Include="MongoDB.Driver">
       <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Driver.dll</HintPath>
     </Reference>
-    <Reference Include="Rebus">
-      <HintPath>..\packages\Rebus.0.24.0\lib\NET40\Rebus.dll</HintPath>
+    <Reference Include="Rebus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Rebus.0.24.3\lib\NET40\Rebus.dll</HintPath>
     </Reference>
-    <Reference Include="Rebus.Castle.Windsor">
-      <HintPath>..\packages\Rebus.Castle.Windsor.0.24.0\lib\NET40\Rebus.Castle.Windsor.dll</HintPath>
+    <Reference Include="Rebus.Castle.Windsor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Rebus.Castle.Windsor.0.24.3\lib\NET40\Rebus.Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Rebus.MongoDb">
-      <HintPath>..\packages\Rebus.MongoDb.0.24.0\lib\NET40\Rebus.MongoDb.dll</HintPath>
+    <Reference Include="Rebus.MongoDb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Rebus.MongoDb.0.24.3\lib\NET40\Rebus.MongoDb.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

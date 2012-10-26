@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Text.RegularExpressions;
 using System.Timers;
 using System.Windows;
 using DrugLord.Messages;
@@ -43,11 +44,25 @@ namespace DrugLord
 
                 MessageReceived(new MessageItem(returnAddress, str));
 
+                if (!Regex.IsMatch(str, "hej|hello|hallå|goddag", RegexOptions.IgnoreCase)) return;
+
                 if (messageContext.Headers.ContainsKey(Headers.ReturnAddress))
                 {
                     var userToken = Data.Current.GetUserTokenFor(returnAddress);
 
-                    adapter.Bus.Reply(userToken);
+                    var greeting = string.Format(@"
+Hej med dig, tak for din hilsen! Drug Lord 
+kvitterer med denne særlige kode, som du kan 
+bruge senere: 
+
+    '{0}'
+
+Som din Drug Lord anbefaler jeg at du bruger
+teknologier som 'clipboard', 'copy-paste' og
+den slags til at få fat i koden.
+", userToken);
+
+                    adapter.Bus.Reply(greeting);
                 }
             });
 
