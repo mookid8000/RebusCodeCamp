@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Timers;
 using System.Linq;
+using Rebus.Logging;
 
 namespace DrugLord.Windows
 {
@@ -9,6 +10,13 @@ namespace DrugLord.Windows
     /// </summary>
     public partial class DepositsWindow
     {
+        static ILog log;
+
+        static DepositsWindow()
+        {
+            RebusLoggerFactory.Changed += f => log = f.GetCurrentClassLogger();
+        }
+        
         readonly Timer timer = new Timer();
 
         public ObservableCollection<Depositor> Depositors { get; set; }
@@ -23,7 +31,7 @@ namespace DrugLord.Windows
         protected override void OnInitialized(System.EventArgs e)
         {
             timer.Elapsed += delegate { UpdateGraphs(); };
-            timer.Interval = 2000;
+            timer.Interval = 200;
             timer.Start();
 
             base.OnInitialized(e);
@@ -50,18 +58,20 @@ namespace DrugLord.Windows
 
             foreach (var depositorToRemove in depositorsToRemove)
             {
-                Depositors.Remove(depositorToRemove);
+                log.Info("Removing {0}", depositorToRemove.Name);
+                Dispatcher.Invoke(() => Depositors.Remove(depositorToRemove));
             }
 
             foreach (var depositorToAdd in depositorsToAdd)
             {
-                Depositors.Add(depositorToAdd);
+                log.Info("Adding {0}", depositorToAdd.Name);
+                Dispatcher.Invoke(() => Depositors.Add(depositorToAdd));
             }
 
             // update all in-place now
             foreach (var depositor in newDepositors)
             {
-                Depositors.Single(d => d.Name == depositor.Name).TakeValuesFrom(depositor);
+                Dispatcher.Invoke(() => Depositors.Single(d => d.Name == depositor.Name).TakeValuesFrom(depositor));
             }
         }
     }
