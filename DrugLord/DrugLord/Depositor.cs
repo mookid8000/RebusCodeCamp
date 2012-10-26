@@ -25,7 +25,13 @@ namespace DrugLord
             {
                 moneyAmount = value;
                 OnPropertyChanged("MoneyAmount");
+                OnPropertyChanged("MoneyBarWidth");
             }
+        }
+
+        public decimal MoneyBarWidth
+        {
+            get { return MoneyAmount; }
         }
 
         public decimal DrugsAmount
@@ -35,7 +41,13 @@ namespace DrugLord
             {
                 drugsAmount = value;
                 OnPropertyChanged("DrugsAmount");
+                OnPropertyChanged("DrugsBarWidth");
             }
+        }
+
+        public decimal DrugsBarWidth
+        {
+            get { return DrugsAmount; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
