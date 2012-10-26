@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using DrugLord.Messages;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using System.Linq;
 
 namespace DrugLord
 {
@@ -37,7 +41,7 @@ namespace DrugLord
             {
                 var userToken = endpoint + "/" + Guid.NewGuid().ToString().Substring(0, 6);
                 userTokens.Insert(new { endpoint, userToken }, SafeMode.True);
-                database.GetCollection("stash").Insert(new {depositor = endpoint});
+                database.GetCollection("stash").Insert(new { depositor = endpoint });
                 return userToken;
             }
 
@@ -54,7 +58,7 @@ namespace DrugLord
             var criteria = Query.And(Query.EQ("depositor", depositor), Query.NE("money.transfers", money.TransferId));
             var operation = Update
                 .AddToSet("money.transfers", money.TransferId)
-                .Inc("money.amount", (double) money.Amount);
+                .Inc("money.amount", (double)money.Amount);
 
             var safeModeResult = database.GetCollection("stash").Update(criteria, operation, SafeMode.True);
 
@@ -82,6 +86,30 @@ namespace DrugLord
             {
                 throw new InvalidOperationException(string.Format("Could not deposit money for '{0}' (transfer ID '{1}')", depositor, drugs.TransferId));
             }
+        }
+
+        public IEnumerable<Depositor> GetDepositors()
+        {
+            var stash = database.GetCollection("stash");
+            var stashedAmounts = stash.FindAll()
+                .SetFields(Fields.Include("depositor", "money", "drugs"))
+                .ToList();
+
+            return stashedAmounts
+                .Select(doc => new Depositor
+                                   {
+                                       Name = doc["depositor"].AsString,
+                                       MoneyAmount = (decimal)GetDouble(doc, "money"),
+                                       DrugsAmount = (decimal)GetDouble(doc, "drugs"),
+                                   })
+                .ToList();
+        }
+
+        static double GetDouble(BsonDocument doc, string path)
+        {
+            return doc.Contains(path)
+                       ? doc[path].AsBsonDocument["amount"].AsDouble
+                       : 0;
         }
     }
 }

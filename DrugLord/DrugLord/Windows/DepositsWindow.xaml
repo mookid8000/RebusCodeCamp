@@ -31,17 +31,21 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="70"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
                                 <Label Content="{Binding Name}" FontSize="20" Grid.Column="0" Grid.RowSpan="2"/>
 
                                 <Label Content="Money" Grid.Row="0" Grid.Column="1"/>
-                                <Border BorderThickness="2" Width="{Binding MoneyAmount}" Height="18" Background="Green" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"/>
+                                <Border BorderThickness="2" Width="{Binding MoneyAmount}" Background="Green" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left">
+                                    <Label Content="{Binding MoneyAmount}" HorizontalAlignment="Left" Foreground="White"/>
+                                </Border>
 
                                 <Label Content="Drugs" Grid.Row="1" Grid.Column="1"/>
-                                <Border BorderThickness="2" Width="{Binding DrugsAmount}" Height="18" Background="Red" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"/>
+                                <Border BorderThickness="2" Width="{Binding DrugsAmount}" Background="Red" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left">
+                                    <Label Content="{Binding DrugsAmount}" HorizontalAlignment="Left" Foreground="White"/>
+                                </Border>
                             </Grid>
                         </Border>
                     </DataTemplate>
