@@ -11,6 +11,7 @@ using Rebus.Logging;
 using Rebus.Shared;
 using Rebus.Transports.Msmq;
 using Rebus.MongoDb;
+using Rebus.RabbitMQ;
 
 namespace DrugLord
 {
@@ -70,7 +71,7 @@ den slags til at få fat i koden.
 
             Configure.With(adapter)
                 .Logging(l => l.Use(windowLoggerFactory))
-                .Transport(t => t.UseMsmqAndGetInputQueueNameFromAppConfig())
+                .Transport(t => t.UseRabbitMqAndGetInputQueueNameFromAppConfig("amqp://localhost"))
                 .Subscriptions(s => s.StoreInMongoDb(ConfigurationManager.AppSettings["mongo"], "subscriptions"))
                 .CreateBus().Start();
 

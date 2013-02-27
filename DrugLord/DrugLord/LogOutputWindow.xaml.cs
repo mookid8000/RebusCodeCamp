@@ -42,7 +42,7 @@ namespace DrugLord
 
         void UpdateText(object sender, ElapsedEventArgs e)
         {
-            LogText = logger.GetText();
+            Dispatcher.Invoke(() => LogText = logger.GetText());
         }
 
         public string LogText

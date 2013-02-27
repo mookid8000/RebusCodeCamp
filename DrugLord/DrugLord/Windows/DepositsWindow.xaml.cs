@@ -48,31 +48,34 @@ namespace DrugLord.Windows
 
         void UpdateGraphs()
         {
-            var newDepositors = Data.Current.GetDepositors().ToList();
-            
-            var newDepositorNames = newDepositors.Select(d => d.Name).ToArray();
-            var currentDepositorNames = Depositors.Select(d => d.Name).ToArray();
-            
-            var depositorsToRemove = Depositors.Where(d => !newDepositorNames.Contains(d.Name));
-            var depositorsToAdd = newDepositors.Where(n => !currentDepositorNames.Contains(n.Name));
+            Dispatcher.Invoke(() =>
+                                  {
+                                      var newDepositors = Data.Current.GetDepositors().ToList();
 
-            foreach (var depositorToRemove in depositorsToRemove)
-            {
-                log.Info("Removing {0}", depositorToRemove.Name);
-                Dispatcher.Invoke(() => Depositors.Remove(depositorToRemove));
-            }
+                                      var newDepositorNames = newDepositors.Select(d => d.Name).ToArray();
+                                      var currentDepositorNames = Depositors.Select(d => d.Name).ToArray();
 
-            foreach (var depositorToAdd in depositorsToAdd)
-            {
-                log.Info("Adding {0}", depositorToAdd.Name);
-                Dispatcher.Invoke(() => Depositors.Add(depositorToAdd));
-            }
+                                      var depositorsToRemove = Depositors.Where(d => !newDepositorNames.Contains(d.Name));
+                                      var depositorsToAdd = newDepositors.Where(n => !currentDepositorNames.Contains(n.Name));
 
-            // update all in-place now
-            foreach (var depositor in newDepositors)
-            {
-                Dispatcher.Invoke(() => Depositors.Single(d => d.Name == depositor.Name).TakeValuesFrom(depositor));
-            }
+                                      foreach (var depositorToRemove in depositorsToRemove)
+                                      {
+                                          log.Info("Removing {0}", depositorToRemove.Name);
+                                          Depositors.Remove(depositorToRemove);
+                                      }
+
+                                      foreach (var depositorToAdd in depositorsToAdd)
+                                      {
+                                          log.Info("Adding {0}", depositorToAdd.Name);
+                                          Depositors.Add(depositorToAdd);
+                                      }
+
+                                      // update all in-place now
+                                      foreach (var depositor in newDepositors)
+                                      {
+                                          Depositors.Single(d => d.Name == depositor.Name).TakeValuesFrom(depositor);
+                                      }
+                                  });
         }
     }
 }

@@ -27,7 +27,7 @@
             <ListBox ItemsSource="{Binding Depositors}" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border CornerRadius="6" BorderThickness="2" Margin="1" BorderBrush="Black" Background="AliceBlue">
+                        <Border CornerRadius="3" BorderThickness="1" Margin="0" BorderBrush="Black" Background="AliceBlue">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
@@ -35,20 +35,20 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="50"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Content="{Binding Name}" FontSize="16" Grid.ColumnSpan="2" Background="SlateGray" Foreground="White" FontWeight="ExtraBold"/>
+                                <Label Content="{Binding Name}" FontSize="11" Grid.ColumnSpan="2" Background="SlateGray" Foreground="White" FontWeight="ExtraBold" Padding="0"/>
 
-                                <Label Grid.Row="1" Grid.Column="0" Content="Money" FontWeight="Bold" FontSize="14"/>
-                                <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Width="{Binding MoneyBarWidth}" Background="Green" HorizontalAlignment="Left">
-                                    <Label Content="{Binding MoneyAmount}" HorizontalAlignment="Left" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="Money" FontWeight="Bold" FontSize="11" Padding="0"/>
+                                <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Width="{Binding MoneyBarWidth}" Background="Green" HorizontalAlignment="Left" Padding="0">
+                                    <Label Content="{Binding MoneyAmount}" HorizontalAlignment="Left" Foreground="White" FontWeight="Bold" FontSize="10" Padding="0"/>
                                 </Border>
 
-                                <Label Grid.Row="2" Grid.Column="0" Content="Drugs" FontWeight="Bold" FontSize="14"/>
-                                <Border Grid.Row="2" Grid.Column="1" BorderThickness="2" Width="{Binding DrugsBarWidth}" Background="Red" HorizontalAlignment="Left">
-                                    <Label Content="{Binding DrugsAmount}" HorizontalAlignment="Left" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                                <Label Grid.Row="2" Grid.Column="0" Content="Drugs" FontWeight="Bold" FontSize="11" Padding="0"/>
+                                <Border Grid.Row="2" Grid.Column="1" BorderThickness="2" Width="{Binding DrugsBarWidth}" Background="Red" HorizontalAlignment="Left" Padding="0">
+                                    <Label Content="{Binding DrugsAmount}" HorizontalAlignment="Left" Foreground="White" FontWeight="Bold" FontSize="10" Padding="0"/>
                                 </Border>
                             </Grid>
                         </Border>

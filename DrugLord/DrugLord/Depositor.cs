@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 
 namespace DrugLord
@@ -7,6 +8,17 @@ namespace DrugLord
         string name;
         decimal moneyAmount;
         decimal drugsAmount;
+        DateTime lastUpdated;
+
+        public Depositor()
+        {
+            lastUpdated = DateTime.Now;
+        }
+
+        public DateTime LastUpdated
+        {
+            get { return lastUpdated; }
+        }
 
         public string Name
         {
@@ -60,8 +72,14 @@ namespace DrugLord
 
         public void TakeValuesFrom(Depositor depositor)
         {
+            if (MoneyAmount == depositor.MoneyAmount
+                && DrugsAmount == depositor.DrugsAmount) return;
+
             MoneyAmount = depositor.MoneyAmount;
             DrugsAmount = depositor.DrugsAmount;
+
+            lastUpdated = DateTime.Now;
+            OnPropertyChanged("LastUpdated");
         }
     }
 }

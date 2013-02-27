@@ -11,15 +11,18 @@ namespace SoapPimp
 {
     public class DrugLord : IDrugLord
     {
-        readonly MongoDatabase database;
+        static readonly MongoDatabase database;
         readonly Random random = new Random();
         readonly MongoCollection<BsonDocument> money;
         readonly MongoCollection<BsonDocument> drugs;
 
-        public DrugLord()
+        static DrugLord()
         {
             database = MongoDatabase.Create(ConfigurationManager.AppSettings["mongo"]);
+        }
 
+        public DrugLord()
+        {
             money = database.GetCollection("money");
             money.EnsureIndex(IndexKeys.Ascending("userToken", "secretCode"), IndexOptions.SetUnique(true));
 

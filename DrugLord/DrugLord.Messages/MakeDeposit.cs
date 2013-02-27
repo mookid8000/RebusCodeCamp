@@ -30,4 +30,5 @@
         public decimal Amount { get; private set; }
         public string TransferId { get; private set; }
     }
+
 }
